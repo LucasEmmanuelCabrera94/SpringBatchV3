@@ -61,7 +61,12 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.23</version> <!-- Use the latest version available -->
 		</dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>6.1.1</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -78,6 +83,15 @@
 				</configuration>
 			</plugin>
 		</plugins>
+			<resources>
+				<resource>
+					<directory>resources</directory>
+					<targetPath>${project.build.outputDirectory}</targetPath>
+					<includes>
+						<include>application.properties</include>
+					</includes>
+				</resource>
+			</resources>
 	</build>
 
 </project>

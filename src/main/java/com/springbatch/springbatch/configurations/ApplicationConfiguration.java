@@ -7,7 +7,6 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
-import java.util.Objects;
 import java.util.Properties;
 
 @Configuration
@@ -16,11 +15,11 @@ public class ApplicationConfiguration {
     private Environment env;
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName(Objects.requireNonNull(env.getProperty("datasource.driver.class.name")));
-        dataSource.setUrl(env.getProperty("datasource.url.name"));
+        dataSource.setDriverClassName(env.getProperty("datasource.driver.class.name"));
+        dataSource.setUrl(env.getProperty("datasource.url"));
         dataSource.setUsername(env.getProperty("datasource.username"));
         dataSource.setPassword(env.getProperty("datasource.pass"));
 

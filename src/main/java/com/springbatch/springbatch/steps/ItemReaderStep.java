@@ -7,14 +7,16 @@ import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 
 import java.nio.charset.StandardCharsets;
 
 public class ItemReaderStep extends FlatFileItemReader<Person> {
 
-    public ItemReaderStep(){
+    public ItemReaderStep() {
         setName("readPersons");
-        setResource(new ClassPathResource("persons.csv"));
+        String currentWorkingDir = System.getProperty("user.dir");
+        setResource(new FileSystemResource(currentWorkingDir + "/src/main/resources/persons.csv"));
         setLinesToSkip(1);
         setEncoding(StandardCharsets.UTF_8.name());
         setLineMapper(getLineMapper());
