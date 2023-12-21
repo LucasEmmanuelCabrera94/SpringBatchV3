@@ -15,8 +15,7 @@ public class ItemReaderStep extends FlatFileItemReader<Person> {
 
     public ItemReaderStep() {
         setName("readPersons");
-        String currentWorkingDir = System.getProperty("user.dir");
-        setResource(new FileSystemResource(currentWorkingDir + "/src/main/resources/persons.csv"));
+        setResource(new ClassPathResource("persons.csv"));
         setLinesToSkip(1);
         setEncoding(StandardCharsets.UTF_8.name());
         setLineMapper(getLineMapper());

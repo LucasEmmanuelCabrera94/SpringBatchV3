@@ -74,24 +74,17 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
+					<jvmArguments>
+						<jvmArgument>-Dspring.config.location=classpath:/application.properties</jvmArgument>
+					</jvmArguments>
 				</configuration>
 			</plugin>
 		</plugins>
-			<resources>
-				<resource>
-					<directory>resources</directory>
-					<targetPath>${project.build.outputDirectory}</targetPath>
-					<includes>
-						<include>application.properties</include>
-					</includes>
-				</resource>
-			</resources>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 	</build>
 
 </project>

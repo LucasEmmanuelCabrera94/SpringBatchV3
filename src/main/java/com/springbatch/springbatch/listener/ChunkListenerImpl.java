@@ -22,7 +22,6 @@ public class ChunkListenerImpl implements ChunkListener {
 
     @Override
     public void afterChunkError(ChunkContext context) {
-        System.out.println("Error during chunk processing...");
-        // Add error handling or cleanup logic here
+        System.err.println("Error durante el procesamiento del chunk: " + context.getAttribute("sb_rollback_exception").toString());
     }
 }
